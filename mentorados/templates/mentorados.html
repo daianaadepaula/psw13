@@ -147,7 +147,6 @@
                     </td>
                     <td class="hidden py-4 pl-0 pr-8 text-sm/6 text-gray-400 md:table-cell lg:pr-20">{{mentorado.criado_em}}</td>
                     <td class="hidden py-4 pl-0 pr-8 text-sm/6 text-gray-400 md:table-cell lg:pr-20">
-                     
                         {{mentorado.navigator.nome}}
                     </td>
                   </tr>
@@ -161,5 +160,23 @@
      
   </div>
 
+<script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+
+<script>
+  const ctx = document.getElementById('myChart');
+
+  new Chart(ctx, {
+    type: 'pie',
+    data: {
+      labels: {{estagios_flat|safe}},
+      datasets: [{
+        label: '',
+        data: {{qtd_estagios|safe}},
+        borderWidth: 1
+      }]
+    },
+    
+  });
+</script>
 
 {% endblock 'body' %}
